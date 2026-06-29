@@ -1,0 +1,13 @@
+wp-includes/**
+!wp-includes/blocks/group/style.min.css
+!wp-includes/blocks/navigation-link/style.min.css
+!wp-includes/blocks/navigation/style.min.css
+!wp-includes/blocks/paragraph/style.min.css
+!wp-includes/blocks/post-content/style.min.css
+!wp-includes/blocks/query-title/style.min.css
+!wp-includes/blocks/site-title/style.min.css
+!wp-includes/css/dist/block-library/common.min.css
+!wp-includes/js/dist/dom-ready.min.js
+!wp-includes/js/dist/script-modules/block-library/navigation/view.min.js
+!wp-includes/js/dist/script-modules/interactivity/index.min.js
+.DS_Store

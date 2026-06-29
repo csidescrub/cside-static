@@ -1,0 +1,14 @@
+name = "cside-static"
+main = "src/index.js"
+compatibility_date = "2024-09-01"
+
+# ═══════════════════════════════════════════════════════════
+# Routing logic อยู่ใน src/index.js
+#   - csidescrubs.com         → Coming Soon page
+#   - cside-static.*.workers.dev → เว็บจริง (public/)
+# แก้ COMING_SOON_HOSTS ใน src/index.js เพื่อเปิด-ปิด
+# ═══════════════════════════════════════════════════════════
+
+[assets]
+directory = "./public"
+binding = "ASSETS"

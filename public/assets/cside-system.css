@@ -1,0 +1,55 @@
+/* ============================================================
+   Cside Design System  (loaded LAST on every page)
+   Centralizes spacing rhythm, container gutter, radius scale and
+   first-paint behaviour by normalizing per-page inline values via
+   the cascade. It does NOT touch images — clarity is untouched.
+   Tune values here once → applies site-wide.
+   ============================================================ */
+
+:root{
+  /* spacing rhythm */
+  --cs-section-y: 80px;
+  --cs-gutter: 24px;
+  /* radius scale (single source of truth) */
+  --cs-radius-sm: 12px;
+  --cs-radius: 18px;
+  --cs-radius-lg: 28px;
+}
+
+@media (max-width: 768px){
+  :root{ --cs-section-y: 52px; --cs-gutter: 20px; }
+}
+
+/* 1) Consistent vertical rhythm.
+   Only bare `.section` is normalized — page-specific variants like
+   `.section.event-info-section` have higher specificity and keep their
+   own tuned spacing, so nothing carefully-composed is disturbed. */
+.section{
+  padding-top: var(--cs-section-y);
+  padding-bottom: var(--cs-section-y);
+}
+
+/* 2) Consistent container gutter across all pages (was 20 / 36 mixed). */
+.container{
+  padding-left: var(--cs-gutter) !important;
+  padding-right: var(--cs-gutter) !important;
+}
+
+/* 3) Above-the-fold heroes render fully on first paint (no faded FOUC).
+   The reveal script sets inline opacity:0; an !important rule wins the
+   cascade so the first screenful is never washed-out on load. Sections
+   below the fold still fade in normally. */
+.hero-text,
+.hero-text-full,
+.hero-content,
+[class*="hero-text"]{
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* 4) Crisper text rendering (typography only — images unaffected). */
+body{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
