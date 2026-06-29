@@ -706,8 +706,9 @@ function renderProducts(id) {
 
  items.forEach((item, idx) => {
   const card = document.createElement('a');
-  card.href = item.link || data.link;
-  card.target = item.link ? '_self' : '_blank';
+  const cslug = colorSlug(item.color);
+  card.href = item.link || ('/men/' + id + '/' + (cslug ? cslug + '/' : ''));
+  card.target = '_self';
   card.rel = 'noopener';
   card.className = 'prod-card';
   card.style.cssText = 'text-decoration:none;color:inherit;display:block';
