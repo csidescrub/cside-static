@@ -53,3 +53,23 @@ body{
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
+
+/* 5) Product detail pages — stacked panels share the EXACT left/right
+   extent of the navbar bar, at every breakpoint. The navbar uses
+   width:calc(100% - 200px) capped at 1240 (desktop) and
+   calc(100% - 24px) (<=768). Mirror that on the page wrapper and zero
+   its gutter so each panel's outer edge lines up with the navbar. */
+main.page-stack{
+  width: calc(100% - 200px) !important;
+  max-width: 1240px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+@media (max-width: 768px){
+  main.page-stack{
+    width: calc(100% - 24px) !important;
+    max-width: none !important;
+  }
+}
