@@ -73,3 +73,17 @@ main.page-stack{
     max-width: none !important;
   }
 }
+
+/* 6) Product gallery images — anchor the crop to the top so a model's head
+   is never cut off when a portrait photo is covered into the gallery cell
+   (detail crops like sleeve/waist are unaffected by a top anchor). */
+.g-cell img{ object-position: center top; }
+
+/* 7) Desktop proportion lock (paired with /assets/desktop-lock.js).
+   On displays wider than the 1440 design width the script zooms <html> so
+   every large screen (monitor, TV, MacBook) shows identical proportions.
+   Full-bleed 100vw sections mis-measure under zoom and bleed symmetrically
+   beyond the viewport — clip that overflow so there's no horizontal
+   scrollbar. Centered content is unaffected. */
+html.cs-locked,
+html.cs-locked body{ overflow-x: clip; }
