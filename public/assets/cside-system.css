@@ -95,9 +95,22 @@ main.page-stack{
 .more-coll .more-card:hover{ transform:translateY(-4px); box-shadow:0 12px 30px rgba(50,80,120,.16); }
 .more-coll .more-img{ aspect-ratio:3/4; background:linear-gradient(135deg,#dfe7ef,#cdd8e3); overflow:hidden; }
 .more-coll .more-img img{ width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
-.more-coll .more-foot{ display:flex; align-items:center; justify-content:space-between; padding:11px 13px 13px; gap:8px; }
-.more-coll .more-name{ font-family:var(--sans,'Inter',sans-serif); font-size:13px; font-weight:600; color:#1a1a1a; }
-.more-coll .more-go{ color:#7b8794; font-size:15px; flex:0 0 auto; }
+.more-coll .more-foot{ display:flex; align-items:center; justify-content:space-between; padding:12px 12px 12px 14px; gap:8px; }
+.more-coll .more-name{ font-family:var(--sans,'Inter',sans-serif); font-size:13px; font-weight:600; color:#1a1a1a; line-height:1.25; }
+.more-coll .more-go{
+  width:30px; height:30px; flex:0 0 auto; border-radius:50%;
+  border:1px solid rgba(0,0,0,.12); background:rgba(255,255,255,.6);
+  display:flex; align-items:center; justify-content:center;
+  color:#1a1a1a; font-size:0; /* hide the text arrow; draw an SVG instead */
+  transition:background .25s ease, border-color .25s ease, transform .25s ease;
+}
+.more-coll .more-go::before{
+  content:""; width:13px; height:13px; display:block;
+  background:currentColor;
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h14M13 6l6 6-6 6'/></svg>") center/contain no-repeat;
+          mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h14M13 6l6 6-6 6'/></svg>") center/contain no-repeat;
+}
+.more-coll .more-card:hover .more-go{ background:#1a1a1a; border-color:#1a1a1a; color:#fff; transform:translateX(2px); }
 @media (max-width:560px){
   .more-coll{ padding:20px 18px 24px; }
   .more-coll .more-card{ flex-basis:150px; }

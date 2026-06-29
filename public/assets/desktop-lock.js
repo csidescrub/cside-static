@@ -19,13 +19,19 @@
 
   function apply() {
     var w = window.innerWidth;
-    if (w > DESIGN) {
-      html.style.zoom = Math.min(w / DESIGN, MAX_ZOOM);
+    var z = (w > DESIGN) ? Math.min(w / DESIGN, MAX_ZOOM) : 1;
+    if (z > 1) {
+      html.style.zoom = z;
       html.classList.add('cs-locked');
     } else {
       html.style.zoom = '';
       html.classList.remove('cs-locked');
     }
+    /* Logical viewport height for vh-style layout. Under `zoom`, the `vh`
+       unit measures the DEVICE height (not the zoomed/logical one), so any
+       vh-based sizing comes out too tall. Expose the true logical height as
+       a variable instead. */
+    html.style.setProperty('--cs-vh100', (window.innerHeight / z) + 'px');
   }
 
   apply();

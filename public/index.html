@@ -899,10 +899,11 @@ h1.entry-title,
  margin-top: -100px; /* pull up behind navbar */
 }
 .hero-fullscreen {
- /* Lock the hero to a fixed shape so it looks identical on every desktop
-    size/aspect (was 110vh, which changed shape with screen height). */
- aspect-ratio: 1.82 !important;
- min-height: 660px !important;
+ /* Taller hero that fills the viewport so the colour bar sits near the
+    bottom edge yet stays visible. The +128px offsets the wrapper's -100px
+    pull-up + the colour bar's 28px bottom margin, keeping the bar at a
+    consistent ~88% of the viewport height across screen heights. */
+ min-height: calc(0.88 * var(--cs-vh100, 100vh) + 128px) !important;
  padding: 0 0 0 0 !important;
  display: flex !important;
  flex-direction: column !important;
@@ -1030,6 +1031,11 @@ h1.entry-title,
 .hcb-item.active small { font-weight: 600; color: #1a1a1a; }
 /* Hero bg transition - uses overlay cross-fade via JS */
 #hero-section .hero-bg { transition: none; }
+/* Keep the model's head in frame on every desktop size — anchor the hero
+   image to the top so the cover-crop only ever trims the bottom (legs),
+   never the head. (The <=768 rule below re-anchors for phones.) */
+#hero-section .hero-bg,
+#hero-section #hcbImageOverlay { background-position: center top !important; }
 @media (max-width: 768px) {
  .hero-page-wrapper { margin-top: -80px; }
  /* shorter hero + tighter top so the model shows above the fold */
@@ -1895,4 +1901,4 @@ h1.entry-title,
  padding-right: 40px !important;
 }
 </style>
-<link rel="stylesheet" href="/assets/mobile-overrides.css"><link rel="stylesheet" href="/assets/cside-system.css"><script src="/assets/desktop-lock.js"></script><script src="/assets/phase1-redirect.js"></script><script src="/assets/connect-section.js"></script></body></html>
+<link rel="stylesheet" href="/assets/mobile-overrides.css"><link rel="stylesheet" href="/assets/cside-system.css?v=2"><script src="/assets/desktop-lock.js?v=2"></script><script src="/assets/phase1-redirect.js"></script><script src="/assets/connect-section.js"></script></body></html>
