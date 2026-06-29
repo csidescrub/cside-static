@@ -369,7 +369,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <div class="g-cell">
        <img id="glRightA" alt="Black Soul">
        <img id="glRightB" alt="Black Soul" style="opacity:0">
-       <video id="glVid" src="/img/classic-video.mp4" poster="/img/pdp-classic-black-soul-1.jpg" muted loop playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
+       <video id="glVid" src="/img/classic-video.mp4" poster="/img/pdp-classic-black-soul-1.jpg" muted playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
       </div>
      </div>
     </div>
@@ -583,9 +583,17 @@ if(f)f.addEventListener('submit',e=>{e.preventDefault();const b=f.querySelector(
    i = ni;
    if(toVid){
     if(gal) gal.classList.add('gallery--vid');
-    if(glVid){ glVid.currentTime = 0; glVid.play(); }
+    stop();
+    if(vidTimer){ clearTimeout(vidTimer); vidTimer = null; }
+    if(glVid){
+     glVid.currentTime = 0;
+     var vp = glVid.play(); if(vp && vp.catch) vp.catch(function(){});
+     var ms = (isFinite(glVid.duration) && glVid.duration > 0 ? glVid.duration * 1000 : 16000) + 800;
+     vidTimer = setTimeout(function(){ if(isVid(i)){ go(1); if(!hovering) play(); } }, ms); // fallback if 'ended' never fires
+    }
    } else {
     if(gal) gal.classList.remove('gallery--vid');
+    if(vidTimer){ clearTimeout(vidTimer); vidTimer = null; }
     if(fromVid && glVid){ glVid.pause(); }
     rA.src = imgs[i % ORIG_N]; rA.style.opacity = '1'; rB.style.opacity = '0';
    }
@@ -594,13 +602,15 @@ if(f)f.addEventListener('submit',e=>{e.preventDefault();const b=f.querySelector(
    busy = false;
   }, DUR);
  }
- var auto = null;
- function play(){ stop(); auto = setInterval(function(){ go(1); }, 2500); }
+ var auto = null, hovering = false, vidTimer = null;
+ function play(){ stop(); if(isVid(i)) return; auto = setInterval(function(){ go(1); }, 2500); }
  function stop(){ if(auto){ clearInterval(auto); auto = null; } }
  next.addEventListener('click', function(){ go(1); play(); });   // reset timer on manual nav
  prev.addEventListener('click', function(){ go(-1); play(); });
  var gal = strip.closest('.gallery');
- if(gal){ gal.addEventListener('mouseenter', stop); gal.addEventListener('mouseleave', play); }
+ if(gal){ gal.addEventListener('mouseenter', function(){ hovering = true; stop(); }); gal.addEventListener('mouseleave', function(){ hovering = false; play(); }); }
+ // video drives the slide: when the clip plays through, advance to the next image
+ if(glVid){ glVid.addEventListener('ended', function(){ if(vidTimer){ clearTimeout(vidTimer); vidTimer = null; } if(isVid(i)){ go(1); if(!hovering) play(); } }); }
  window.addEventListener('resize', function(){ if(!busy) rest(); });
  // init
  renderStrip();
