@@ -23,7 +23,10 @@
     var a = el.closest && el.closest('a[href]');
     if (!a) return false;
     var h = a.getAttribute('href') || '';
-    return h.indexOf(DOMAIN) !== -1 || h.indexOf('/product/') === 0;
+    // Leave alone: Zaviago URLs, legacy /product/ pages, and our internal
+    // collection product pages (/men/<col>/<color>/, /women/<col>/<color>/)
+    // so native navigation works instead of redirecting to the shop.
+    return h.indexOf(DOMAIN) !== -1 || h.indexOf('/product/') === 0 || /^\/(men|women)\/[^/]+\//.test(h);
   }
 
   function decideUrl(el){
