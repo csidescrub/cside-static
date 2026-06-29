@@ -79,7 +79,31 @@ main.page-stack{
    (detail crops like sleeve/waist are unaffected by a top anchor). */
 .g-cell img{ object-position: center top; }
 
-/* 7) Desktop proportion lock (paired with /assets/desktop-lock.js).
+/* 7) Product page "more in this collection" rail — lets shoppers jump to
+   the other colours of the same collection right after the description.
+   (Gown pages group long / short / dentist together.) */
+.more-coll{ padding:24px 32px 30px; }
+.more-coll .more-head{ display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:16px; }
+.more-coll .more-title{ font-family:var(--sans,'Inter',sans-serif); font-weight:800; font-size:18px; letter-spacing:.08em; text-transform:uppercase; color:#1a1a1a; line-height:1.1; }
+.more-coll .more-sub{ font-family:var(--sans,'Inter',sans-serif); font-size:12px; color:#7b8794; margin-top:3px; }
+.more-coll .more-scroll{ overflow-x:auto; scrollbar-width:thin; margin:0 -4px; padding:4px 4px 10px; scroll-snap-type:x proximity; -webkit-overflow-scrolling:touch; }
+.more-coll .more-scroll::-webkit-scrollbar{ height:6px; }
+.more-coll .more-scroll::-webkit-scrollbar-thumb{ background:rgba(0,0,0,.15); border-radius:3px; }
+.more-coll .more-scroll::-webkit-scrollbar-track{ background:transparent; }
+.more-coll .more-grid{ display:flex; gap:14px; width:max-content; }
+.more-coll .more-card{ flex:0 0 184px; border-radius:16px; overflow:hidden; background:#eef2f6; box-shadow:0 6px 22px rgba(50,80,120,.10); transition:transform .25s ease, box-shadow .25s ease; scroll-snap-align:start; text-decoration:none; color:inherit; display:block; }
+.more-coll .more-card:hover{ transform:translateY(-4px); box-shadow:0 12px 30px rgba(50,80,120,.16); }
+.more-coll .more-img{ aspect-ratio:3/4; background:linear-gradient(135deg,#dfe7ef,#cdd8e3); overflow:hidden; }
+.more-coll .more-img img{ width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
+.more-coll .more-foot{ display:flex; align-items:center; justify-content:space-between; padding:11px 13px 13px; gap:8px; }
+.more-coll .more-name{ font-family:var(--sans,'Inter',sans-serif); font-size:13px; font-weight:600; color:#1a1a1a; }
+.more-coll .more-go{ color:#7b8794; font-size:15px; flex:0 0 auto; }
+@media (max-width:560px){
+  .more-coll{ padding:20px 18px 24px; }
+  .more-coll .more-card{ flex-basis:150px; }
+}
+
+/* 8) Desktop proportion lock (paired with /assets/desktop-lock.js).
    On displays wider than the 1440 design width the script zooms <html> so
    every large screen (monitor, TV, MacBook) shows identical proportions.
    Full-bleed 100vw sections mis-measure under zoom and bleed symmetrically

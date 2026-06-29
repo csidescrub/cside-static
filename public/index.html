@@ -899,7 +899,10 @@ h1.entry-title,
  margin-top: -100px; /* pull up behind navbar */
 }
 .hero-fullscreen {
- min-height: 110vh !important;
+ /* Lock the hero to a fixed 16:9 shape so it looks identical on every
+    desktop size/aspect (was 110vh, which changed shape with screen height). */
+ aspect-ratio: 16 / 9 !important;
+ min-height: 680px !important;
  padding: 0 0 0 0 !important;
  display: flex !important;
  flex-direction: column !important;
@@ -911,8 +914,8 @@ h1.entry-title,
  min-height: auto !important;
  display: flex !important;
  align-items: center !important;
- padding-top: 220px !important;
- padding-bottom: 100px !important;
+ padding-top: 190px !important;
+ padding-bottom: 44px !important;
  grid-template-columns: 1fr !important;
 }
 .hero-text-full {
@@ -1030,7 +1033,7 @@ h1.entry-title,
 @media (max-width: 768px) {
  .hero-page-wrapper { margin-top: -80px; }
  /* shorter hero + tighter top so the model shows above the fold */
- .hero-fullscreen { min-height: 86vh !important; }
+ .hero-fullscreen { aspect-ratio: auto !important; min-height: 86vh !important; }
  .hero-inner-full { padding-top: 124px !important; padding-bottom: 60px !important; }
  /* focus the hero image on the right so the model is visible (beats the inline
     center/cover the colour-picker JS sets) */
