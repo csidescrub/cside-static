@@ -1,0 +1,14 @@
+# OS
+.DS_Store
+**/.DS_Store
+
+# Editors
+.vscode/
+.idea/
+
+# Cloudflare / Wrangler local state & cache
+.wrangler/
+
+# Node
+node_modules/
+npm-debug.log*

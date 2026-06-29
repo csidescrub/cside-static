@@ -4,6 +4,7 @@
   "description": "Helper scripts for deploying cside-static to Cloudflare Workers/Pages",
   "private": true,
   "scripts": {
+    "build": "echo \"static site — no build step\"",
     "login": "npx wrangler@latest login",
     "deploy": "npx wrangler@latest deploy --assets ./public --name cside-static",
     "deploy:assets": "npx wrangler@latest deploy --assets ./public --name cside-static",
