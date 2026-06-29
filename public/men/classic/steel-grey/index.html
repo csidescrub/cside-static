@@ -253,6 +253,17 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .bundle-item .b-opt{font-family:var(--thai);font-size:12px;color:var(--muted)}
 .bundle-item .b-qty{font-family:var(--sans);font-size:13px;color:var(--ink-2);font-weight:500}
 .bundle-item .b-arrow{color:var(--muted);font-size:18px;margin-left:4px}
+/* honest, non-fake UI */
+.bundle-item{cursor:default}
+.bundle-item:hover{background:#fafbfd}
+.bundle-head .bundle-note{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:#eef3f7;padding:3px 8px;border-radius:999px}
+.ship-badge{cursor:default}
+.ship-badge:hover{background:#f5f8fb}
+.rev-count{color:var(--muted);font-size:12px}
+.buy-note{font-family:var(--thai);font-size:12px;line-height:1.55;color:var(--muted);text-align:center;margin:0 2px}
+.btn .ext-ico{margin-left:1px;flex-shrink:0}
+.wishlist-btn{transition:transform .15s,background .2s,color .2s,border-color .2s}
+.wishlist-btn.active{color:#e0245e;border-color:#f3c6d2;background:#fff5f8}
 
 /* description */
 .desc{
@@ -330,7 +341,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <div class="nav-actions">
    <button class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
    <button class="icon-btn" aria-label="Bag"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg></button>
-   <a href="#" class="btn btn-dark">Shop Now</a>
+   <a href="https://0j85q3282r.shop.zaviago.com" target="_blank" rel="noopener" class="btn btn-dark">Shop Now</a>
   </div>
  </div>
 </header>
@@ -343,7 +354,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
    <a href="/men" class="back">← Back</a>
    <a href="/">Home</a> <span class="sep">/</span>
    <a href="/men">Men</a> <span class="sep">/</span>
-   <a href="#">Scrub</a> <span class="sep">/</span>
+   <a href="/men">Scrub</a> <span class="sep">/</span>
    <span>Cside Classic — Steel Grey</span>
   </nav>
  </section>
@@ -384,7 +395,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <aside class="info panel">
    <div class="info-cat">
     <span>Men • Scrub Set</span>
-    <span class="star">★ 4.9 <a href="#">(128)</a></span>
+    <span class="star">★ 4.9 <span class="rev-count">(128 รีวิว)</span></span>
    </div>
    <span class="info-badge">CLASSIC COLLECTION</span>
    <h1 class="info-title">Cside Classic<br>Steel Grey</h1>
@@ -400,31 +411,28 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
      <div class="ship-days">2–3 วัน</div>
      <div class="ship-free">จัดส่งฟรี</div>
     </div>
-    <span class="ship-arrow">›</span>
    </div>
 
    <!-- Bundle: items in set -->
    <div class="bundle">
     <div class="bundle-head">
-     <span>สินค้าในเซ็ต</span><span class="arrow">›</span>
+     <span>สินค้าในเซ็ต</span><span class="bundle-note">รวมในชุดเดียว</span>
     </div>
     <div class="bundle-item">
      <div class="b-thumb"><img src="/img/pdp-classic-steel-grey-1.jpg" alt="เสื้อ Cside Classic ชาย"></div>
      <div class="b-info">
       <div class="b-name">เสื้อ Cside Classic ชาย</div>
-      <div class="b-opt">Tap to select options</div>
+      <div class="b-opt">รวมอยู่ในเซ็ต · เลือกไซซ์ที่หน้าสั่งซื้อ</div>
      </div>
      <span class="b-qty">x1</span>
-     <span class="b-arrow">›</span>
     </div>
     <div class="bundle-item">
      <div class="b-thumb"><img src="/img/pdp-classic-steel-grey-2.jpg" alt="กางเกง Cside Classic ชาย"></div>
      <div class="b-info">
       <div class="b-name">กางเกง Cside Classic ชาย</div>
-      <div class="b-opt">Tap to select options</div>
+      <div class="b-opt">รวมอยู่ในเซ็ต · เลือกไซซ์ที่หน้าสั่งซื้อ</div>
      </div>
      <span class="b-qty">x1</span>
-     <span class="b-arrow">›</span>
     </div>
    </div>
 
@@ -438,15 +446,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
      <button class="size">L</button>
      <button class="size">XL</button>
     </div>
-    <a href="#" class="size-guide">Size guide ↓</a>
+    <a href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-ncl-m?ref=collection&amp;collection_slug=new-classic-collection" target="_blank" rel="noopener" class="size-guide">ดูตารางไซซ์ที่ร้านค้า ↗</a>
    </div>
 
    <!-- Actions -->
    <div class="actions">
-    <a class="btn btn-dark" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-ncl-m?ref=collection&amp;collection_slug=new-classic-collection" target="_blank" rel="noopener" data-cta="pdp-buy">ซื้อเลย →</a>
+    <a class="btn btn-dark" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-ncl-m?ref=collection&amp;collection_slug=new-classic-collection" target="_blank" rel="noopener" data-cta="pdp-buy">สั่งซื้อที่ร้านค้าออนไลน์ <svg class="ext-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+    <p class="buy-note">สั่งซื้อผ่านร้านค้าออนไลน์อย่างเป็นทางการของ Cside · เลือกสี &amp; ไซซ์ได้ที่หน้าสั่งซื้อ</p>
     <div class="row">
-     <button class="btn btn-light wishlist-btn" aria-label="Wishlist">♡</button>
-     <a class="btn btn-light" href="https://0j85q3282r.shop.zaviago.com" target="_blank" rel="noopener">Find in Store</a>
+     <button class="btn btn-light wishlist-btn" type="button" aria-label="บันทึกที่ชอบ" aria-pressed="false">♡</button>
+     <a class="btn btn-light" href="https://0j85q3282r.shop.zaviago.com" target="_blank" rel="noopener">ดูร้านค้าทั้งหมด</a>
     </div>
    </div>
   </aside>
@@ -526,6 +535,7 @@ document.querySelectorAll('.size:not(.disabled)').forEach(s=>s.addEventListener(
  document.querySelectorAll('.size').forEach(x=>x.classList.remove('active'));
  s.classList.add('active');
 }));
+document.querySelectorAll('.wishlist-btn').forEach(b=>b.addEventListener('click',()=>{const on=b.classList.toggle('active');b.textContent=on?'\u2665':'\u2661';b.setAttribute('aria-pressed',on);}));
 const f=document.getElementById('newsForm');
 if(f)f.addEventListener('submit',e=>{e.preventDefault();const b=f.querySelector('button'),o=b.textContent;b.textContent='✓';f.querySelector('input').value='';setTimeout(()=>b.textContent=o,1500)});
 </script>
