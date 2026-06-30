@@ -3,9 +3,9 @@
   "configurations": [
     {
       "name": "cside-static",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["wrangler", "dev", "--port", "8787"],
-      "port": 8787
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8099", "--directory", "/Users/macbook/Desktop/CYN/Cside/02-Website/cside-static/public"],
+      "port": 8099
     }
   ]
 }
