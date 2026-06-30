@@ -291,6 +291,23 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 .desc ul{padding-left:18px;margin-top:10px}
 .desc li{margin-bottom:6px}
+.desc-with-snoopy{
+ display:grid;
+ grid-template-columns:minmax(0,1fr) 170px;
+ gap:28px;
+ align-items:center;
+}
+.desc-snoopy{
+ justify-self:end;
+ align-self:center;
+ width:min(150px,100%);
+ margin:0;
+}
+.desc-snoopy img{width:100%;height:auto;object-fit:contain;display:block}
+@media (max-width:640px){
+ .desc-with-snoopy{grid-template-columns:1fr;gap:18px}
+ .desc-snoopy{justify-self:start;width:112px}
+}
 
 /* ============== FOOTER (full-width glass) ============== */
 .foot-wrap{
@@ -470,7 +487,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
  <!-- ============== DESCRIPTION ============== -->
  <section class="panel">
-  <div class="desc">
+  <div class="desc desc-with-snoopy">
+  <div class="desc-copy">
    <h3>Product Details</h3>
    <p>เซ็ตสครับ Cside Snoopy สี Spear Mint สำหรับผู้หญิง — เซ็ตครบทั้งเสื้อและกางเกง พร้อมใส่ทำงานจริงทุกวัน</p>
    <ul>
@@ -478,6 +496,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <li>เซ็ตประกอบด้วย: เสื้อ + กางเกง Cside Snoopy</li>
     <li>ดูรายละเอียดเนื้อผ้า ไซซ์ และการดูแล ที่หน้าสั่งซื้ออย่างเป็นทางการ</li>
    </ul>
+  </div>
+  <figure class="desc-snoopy" aria-label="Snoopy color artwork"><img src="/img/sn-spear-mint.webp" alt="Snoopy Spear Mint" loading="lazy" decoding="async"></figure>
   </div>
  </section>
 
@@ -646,7 +666,7 @@ if(f)f.addEventListener('submit',e=>{e.preventDefault();const b=f.querySelector(
 <link rel="stylesheet" href="/assets/mobile-overrides.css"><link rel="stylesheet" href="/assets/cside-system.css?v=4"><script src="/assets/desktop-lock.js?v=3"></script>
 <script>
 (function(){
- var imgs = ['/img/women-snoopy-spearmint.jpg','/img/pdp-snoopy-spear-mint-2.jpg'];
+ var imgs = ['/img/women-snoopy-spearmint.jpg','/img/women-snoopy-spear-mint-fullbody.jpg','/img/pdp-snoopy-spear-mint-2.jpg'];
  var ORIG_N = imgs.length, N = ORIG_N + 1, VID_IDX = ORIG_N, VID_THUMB = '/img/snoopy-women-video-thumb.jpg', GAP = 8, DUR = 500;
  var strip = document.getElementById('glStrip');
  var rA = document.getElementById('glRightA');

@@ -291,6 +291,23 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 .desc ul{padding-left:18px;margin-top:10px}
 .desc li{margin-bottom:6px}
+.desc-with-snoopy{
+ display:grid;
+ grid-template-columns:minmax(0,1fr) 170px;
+ gap:28px;
+ align-items:center;
+}
+.desc-snoopy{
+ justify-self:end;
+ align-self:center;
+ width:min(150px,100%);
+ margin:0;
+}
+.desc-snoopy img{width:100%;height:auto;object-fit:contain;display:block}
+@media (max-width:640px){
+ .desc-with-snoopy{grid-template-columns:1fr;gap:18px}
+ .desc-snoopy{justify-self:start;width:112px}
+}
 
 /* ============== FOOTER (full-width glass) ============== */
 .foot-wrap{
@@ -470,7 +487,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
  <!-- ============== DESCRIPTION ============== -->
  <section class="panel">
-  <div class="desc">
+  <div class="desc desc-with-snoopy">
+  <div class="desc-copy">
    <h3>Product Details</h3>
    <p>เซ็ตสครับ Cside × Snoopy สี Moon Stone Grey สำหรับผู้ชาย — คอลเลกชันลายปัก Snoopy ที่ปลายแขนเสื้อและขากางเกง ดีไซน์เรียบใส่ทำงานได้ทุกวัน เซ็ตครบทั้งเสื้อและกางเกง</p>
    <ul>
@@ -481,6 +499,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <li>ซักและอบแห้งด้วยเครื่องได้</li>
     <li>ผลิตในประเทศไทย</li>
    </ul>
+  </div>
+  <figure class="desc-snoopy" aria-label="Snoopy color artwork"><img src="/img/sn-moon-stone-grey.webp" alt="Snoopy Moon Stone Grey" loading="lazy" decoding="async"></figure>
   </div>
  </section>
 

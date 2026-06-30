@@ -52,8 +52,8 @@ a{color:inherit;text-decoration:none;transition:color .2s,opacity .2s}
 
 /* ---- 1. HERO ---- */
 .hero{position:relative;min-height:96vh;display:flex;flex-direction:column;color:var(--ink);overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:url('/img/home-hero.jpg') right center/cover no-repeat;z-index:-2}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(247,250,252,.9) 0%,rgba(247,250,252,.5) 36%,rgba(247,250,252,0) 62%);z-index:-1}
+.hero-bg{position:absolute;inset:0;background:url('/img/home-hero-alpinegreen.webp') center top/cover no-repeat,linear-gradient(135deg,#C6D4E1 0%,#E3DCE6 60%,#EFE9DC 100%);z-index:-2}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(247,250,252,.9) 0%,rgba(247,250,252,.5) 36%,rgba(247,250,252,0) 62%)}
 .hero-in{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding-top:150px;padding-bottom:40px;padding-left:clamp(24px,5.5vw,96px);padding-right:24px;max-width:760px;margin:0}
 .eyebrow{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--c-blue-d);margin-bottom:22px}
 .eyebrow .heart{color:#E07A8B}
@@ -220,8 +220,8 @@ a{color:inherit;text-decoration:none;transition:color .2s,opacity .2s}
  .cases{grid-template-columns:1fr 1fr}
  .cases .case:nth-child(3){display:none}
  .hero{min-height:92vh}
- .hero::before{background-position:88% 12%}
- .hero::after{background:linear-gradient(180deg,rgba(247,250,252,.42) 0%,rgba(247,250,252,.05) 30%,rgba(247,250,252,.85) 72%,rgba(247,250,252,.97) 100%)}
+ .hero-bg{background-position:center top !important}
+ .hero-bg::after{background:linear-gradient(180deg,rgba(247,250,252,.42) 0%,rgba(247,250,252,.05) 30%,rgba(247,250,252,.85) 72%,rgba(247,250,252,.97) 100%)}
  .hero-in{justify-content:flex-start;padding:116px 20px 18px;max-width:100%}
  .hero h1{font-size:clamp(33px,8.2vw,46px);line-height:1.05}
  .hero .lead{max-width:100%;margin-bottom:22px;font-size:15px}
@@ -262,6 +262,7 @@ a{color:inherit;text-decoration:none;transition:color .2s,opacity .2s}
 
 <!-- ============ 1. HERO ============ -->
 <header class="hero">
+ <div class="hero-bg" id="heroBg"></div>
  <div class="wrap hero-in">
   <p class="eyebrow">Cside <span class="heart">×</span> Snoopy · Official Peanuts Licensed · Shipped Worldwide</p>
   <h1>Premium medical scrubs,<br>loved worldwide</h1>
@@ -284,29 +285,29 @@ a{color:inherit;text-decoration:none;transition:color .2s,opacity .2s}
     <p class="hcb-sub">Colors that feel like you.<br>Designed to bring calm to every shift.</p>
    </div>
    <div class="hcb-scrub-preview" id="hcbScrubPreview">
-    <img id="heroScrubImg" src="/img/Mockup-SpearMint-282x300.png" alt="Scrub preview" draggable="false">
+    <img id="heroScrubImg" src="/img/Mockup-AlpineGreen-282x300.webp" alt="Scrub preview" draggable="false">
    </div>
    <div class="hcb-swatches-wrapper">
     <button class="hcb-scroll-btn" id="hcbScrollPrev" aria-label="Previous">‹</button>
     <div class="hcb-swatches" id="hcbSwatches">
-     <button class="hcb-item active" data-color="spearmint"><span class="hcb-circle" style="background:#b6e2e1"></span><small>Spear Mint</small></button>
-     <button class="hcb-item" data-color="blacksoul"><span class="hcb-circle" style="background:#050608"></span><small>Black Soul</small></button>
-     <button class="hcb-item" data-color="darksea"><span class="hcb-circle" style="background:#20555b"></span><small>Dark Sea</small></button>
-     <button class="hcb-item" data-color="wildrose"><span class="hcb-circle" style="background:#df9cc5"></span><small>Wild Rose</small></button>
-     <button class="hcb-item" data-color="alpinegreen"><span class="hcb-circle" style="background:#6f826c"></span><small>Alpine Green</small></button>
-     <button class="hcb-item" data-color="cherryblossom"><span class="hcb-circle" style="background:#a15474"></span><small>Cherry Blossom</small></button>
-     <button class="hcb-item" data-color="pageantblue"><span class="hcb-circle" style="background:#13487a"></span><small>Pageant Blue</small></button>
-     <button class="hcb-item" data-color="dreamypurple"><span class="hcb-circle" style="background:#ddbcd9"></span><small>Dreamy Purple</small></button>
-     <button class="hcb-item" data-color="lavendergrey"><span class="hcb-circle" style="background:#947d97"></span><small>Lavender Grey</small></button>
-     <button class="hcb-item" data-color="canolicream"><span class="hcb-circle" style="background:#f5f4d6"></span><small>Cannoli Cream</small></button>
-     <button class="hcb-item" data-color="darkforest"><span class="hcb-circle" style="background:#274543"></span><small>Dark Forest</small></button>
-     <button class="hcb-item" data-color="moonstonegrey"><span class="hcb-circle" style="background:#8691ad"></span><small>Moon Stone Grey</small></button>
-     <button class="hcb-item" data-color="bluelagoon"><span class="hcb-circle" style="background:#5a8db1"></span><small>Blue Lagoon</small></button>
-     <button class="hcb-item" data-color="charcoalgrey"><span class="hcb-circle" style="background:#3d3d3d"></span><small>Charcoal Grey</small></button>
-     <button class="hcb-item" data-color="irismist"><span class="hcb-circle" style="background:#b5acc7"></span><small>Iris Mist</small></button>
-     <button class="hcb-item" data-color="midnight"><span class="hcb-circle" style="background:#1a2540"></span><small>Midnight</small></button>
-     <button class="hcb-item" data-color="rubygem"><span class="hcb-circle" style="background:#7d2238"></span><small>Ruby Gem</small></button>
-     <button class="hcb-item" data-color="sandstone"><span class="hcb-circle" style="background:#d6bfa4"></span><small>Sandstone</small></button>
+     <button class="hcb-item active" data-color="alpinegreen" data-bg1="#a0a897" data-bg2="#bbbdb5" data-image="/img/home-hero-alpinegreen.webp"><span class="hcb-circle" style="background:#848c79"></span><small>Alpine Green</small></button>
+     <button class="hcb-item" data-color="blacksoul" data-bg1="#3a3938" data-bg2="#575755" data-image="/img/home-hero-blacksoul.webp"><span class="hcb-circle" style="background:#191818"></span><small>Black Soul</small></button>
+     <button class="hcb-item" data-color="bluelagoon" data-bg1="#4270a5" data-bg2="#5888bc" data-image="/img/home-hero-bluelagoon.webp"><span class="hcb-circle" style="background:#2f578a"></span><small>Blue Lagoon</small></button>
+     <button class="hcb-item" data-color="canolicream" data-bg1="#d8d3c0" data-bg2="#e6e2d5" data-image="/img/home-hero-canolicream.webp"><span class="hcb-circle" style="background:#c8c2ab"></span><small>Cannoli Cream</small></button>
+     <button class="hcb-item" data-color="charcoalgrey" data-bg1="#686668" data-bg2="#848284" data-image="/img/home-hero-charcoalgrey.webp"><span class="hcb-circle" style="background:#484647"></span><small>Charcoal Grey</small></button>
+     <button class="hcb-item" data-color="cherryblossom" data-bg1="#c07492" data-bg2="#d494ae" data-image="/img/home-hero-cherryblossom.webp"><span class="hcb-circle" style="background:#a5516f"></span><small>Cherry Blossom</small></button>
+     <button class="hcb-item" data-color="darkforest" data-bg1="#587274" data-bg2="#6e8888" data-image="/img/home-hero-darkforest.webp"><span class="hcb-circle" style="background:#3a5052"></span><small>Dark Forest</small></button>
+     <button class="hcb-item" data-color="darksea" data-bg1="#2e6270" data-bg2="#477686" data-image="/img/home-hero-darksea.webp"><span class="hcb-circle" style="background:#165060"></span><small>Dark Sea</small></button>
+     <button class="hcb-item" data-color="dreamypurple" data-bg1="#e9d5e7" data-bg2="#f3e8f2" data-image="/img/home-hero-dreamypurple.webp"><span class="hcb-circle" style="background:#dbbcd8"></span><small>Dreamy Purple</small></button>
+     <button class="hcb-item" data-color="irismist" data-bg1="#caacca" data-bg2="#dabed9" data-image="/img/home-hero-irismist.webp"><span class="hcb-circle" style="background:#b691b1"></span><small>Iris Mist</small></button>
+     <button class="hcb-item" data-color="lavendergrey" data-bg1="#ac90a0" data-bg2="#c4aab8" data-image="/img/home-hero-lavendergrey.webp"><span class="hcb-circle" style="background:#927687"></span><small>Lavender Grey</small></button>
+     <button class="hcb-item" data-color="midnight" data-bg1="#324f70" data-bg2="#496685" data-image="/img/home-hero-midnight.webp"><span class="hcb-circle" style="background:#1f344e"></span><small>Midnight</small></button>
+     <button class="hcb-item" data-color="moonstonegrey" data-bg1="#b5b5c7" data-bg2="#ccccdb" data-image="/img/home-hero-sandstone.webp"><span class="hcb-circle" style="background:#9d9cb1"></span><small>Moon Stone Grey</small></button>
+     <button class="hcb-item" data-color="pageantblue" data-bg1="#3c5080" data-bg2="#5470a0" data-image="/img/home-hero-pageantblue.webp"><span class="hcb-circle" style="background:#25355e"></span><small>Pageant Blue</small></button>
+     <button class="hcb-item" data-color="rubygem" data-bg1="#962742" data-bg2="#ae4158" data-image="/img/home-hero-rubygem.webp"><span class="hcb-circle" style="background:#790b2a"></span><small>Ruby Gem</small></button>
+     <button class="hcb-item" data-color="sandstone" data-bg1="#bfaca0" data-bg2="#d4c5bc" data-image="/img/home-hero-sandstone.webp"><span class="hcb-circle" style="background:#a79087"></span><small>Sandstone</small></button>
+     <button class="hcb-item" data-color="spearmint" data-bg1="#c5d5de" data-bg2="#d9e5ec" data-image="/img/home-hero-spearmint.webp"><span class="hcb-circle" style="background:#a8bfca"></span><small>Spear Mint</small></button>
+     <button class="hcb-item" data-color="wildrose" data-bg1="#dda9ba" data-bg2="#ecc4d2" data-image="/img/home-hero-wildrose.webp"><span class="hcb-circle" style="background:#cc8ca0"></span><small>Wild Rose</small></button>
     </div>
     <button class="hcb-scroll-btn" id="hcbScrollNext" aria-label="Next">›</button>
    </div>

@@ -50,3 +50,67 @@
     t = setTimeout(apply, 120);
   });
 })();
+
+/* ============================================================
+   Image interaction guard
+   ------------------------------------------------------------
+   Keep product and campaign images from being opened directly
+   through the browser context menu, middle click, or drag-out.
+   This is a casual UX guard, not DRM.
+   ============================================================ */
+(function () {
+  var IMAGE_LINK_RE = /\.(?:avif|gif|jpe?g|png|svg|webp)(?:[?#].*)?$/i;
+
+  function isProtectedImageTarget(node) {
+    if (!node || !node.closest) return false;
+    return !!node.closest('img, picture, video, source, .gl-main, .gl-strip, .hero-bg, .hcb-scrub-preview');
+  }
+
+  function isDirectImageLink(node) {
+    if (!node || !node.closest) return false;
+    var link = node.closest('a[href]');
+    return !!(link && IMAGE_LINK_RE.test(link.getAttribute('href') || ''));
+  }
+
+  function protectImages(root) {
+    var scope = root && root.querySelectorAll ? root : document;
+    scope.querySelectorAll('img').forEach(function (img) {
+      img.setAttribute('draggable', 'false');
+      img.style.webkitUserDrag = 'none';
+      img.style.userSelect = 'none';
+    });
+  }
+
+  document.addEventListener('contextmenu', function (event) {
+    if (isProtectedImageTarget(event.target) || isDirectImageLink(event.target)) {
+      event.preventDefault();
+    }
+  }, true);
+
+  document.addEventListener('dragstart', function (event) {
+    if (isProtectedImageTarget(event.target) || isDirectImageLink(event.target)) {
+      event.preventDefault();
+    }
+  }, true);
+
+  document.addEventListener('auxclick', function (event) {
+    if (isDirectImageLink(event.target)) {
+      event.preventDefault();
+    }
+  }, true);
+
+  document.addEventListener('click', function (event) {
+    if (isDirectImageLink(event.target) && (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)) {
+      event.preventDefault();
+    }
+  }, true);
+
+  protectImages(document);
+  if (window.MutationObserver) {
+    new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        mutation.addedNodes.forEach(protectImages);
+      });
+    }).observe(document.documentElement, { childList: true, subtree: true });
+  }
+})();
