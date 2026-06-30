@@ -92,7 +92,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
  position:relative;overflow:hidden;
  background:url('/img/About-hero-banner.jpg') center/cover no-repeat;
 }
-.hero-fs::after{display:none}
+.hero-fs::after{
+ content:"";position:absolute;inset:0;z-index:1;pointer-events:none;display:block;
+ background:linear-gradient(90deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.78) 24%,rgba(255,255,255,.4) 46%,rgba(255,255,255,0) 66%);
+}
 .hero-fs-inner{
  width:100%;max-width:1240px;margin:0 auto;
  padding:160px 20px 60px;position:relative;z-index:2;
@@ -235,7 +238,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
  <!-- ============== SEC 1: HERO BANNER (full-bleed image) ============== -->
  <section class="hero-fs">
   <div class="hero-fs-inner">
-   <h1 class="h-serif">FOR THE ONES<br>WHO NEVE <br>SLOW DOWN.</h1>
+   <h1 class="h-serif">FOR THE ONES<br>WHO NEVER<br>SLOW DOWN.</h1>
   </div>
  </section>
 
