@@ -198,14 +198,6 @@ a{color:inherit;text-decoration:none;transition:color .2s,opacity .2s}
 .ship-table td{padding:12px 16px;border-bottom:1px solid var(--line);color:var(--ink-2)}
 .ship-table tbody tr:hover{background:rgba(0,0,0,.02)}
 
-/* ---- size guide ---- */
-.size-tables{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:920px;margin:0 auto}
-.size-label{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:10px;text-align:center}
-.size-table{width:100%;border-collapse:collapse;font-size:13px}
-.size-table th{text-align:center;padding:10px 8px;font-weight:600;color:var(--c-blue-d);border-bottom:2px solid var(--line);font-size:11.5px;text-transform:uppercase;letter-spacing:.04em}
-.size-table td{text-align:center;padding:9px 8px;border-bottom:1px solid var(--line);color:var(--ink-2)}
-.size-table tbody tr:hover{background:rgba(0,0,0,.02)}
-.size-table td:first-child{font-weight:600;color:var(--ink)}
 
 /* ---- payment icons ---- */
 .pay-icons{display:flex;gap:8px;justify-content:center;margin-top:18px;flex-wrap:wrap}
@@ -261,9 +253,6 @@ a{color:inherit;text-decoration:none;transition:color .2s,opacity .2s}
  body{padding-bottom:74px}
  .ship-table{font-size:13px}
  .ship-table th,.ship-table td{padding:10px 10px}
- .size-tables{grid-template-columns:1fr}
- .size-table{font-size:12px}
- .size-table th,.size-table td{padding:8px 6px}
 }
 @media (max-width:460px){
  .prods{grid-template-columns:repeat(2,1fr);gap:12px}
@@ -702,44 +691,6 @@ a{color:inherit;text-decoration:none;transition:color .2s,opacity .2s}
  </div>
 </section>
 
-<!-- ============ 9c. SIZE GUIDE ============ -->
-<section class="sec" id="size-guide">
- <div class="wrap">
-  <p class="sec-kicker">Size guide</p>
-  <h2 class="sec-h">Find your perfect fit</h2>
-  <p class="sec-sub">Measurements in centimeters. Our sizing runs true to Asian fit — if between sizes, size up.</p>
-  <div class="size-tables">
-   <div class="size-block">
-    <h4 class="size-label">Women</h4>
-    <table class="size-table">
-     <thead><tr><th>Size</th><th>Chest</th><th>Waist</th><th>Hip</th><th>≈ US/EU</th></tr></thead>
-     <tbody>
-      <tr><td>XS</td><td>82–86</td><td>64–68</td><td>88–92</td><td>US 0-2 / EU 32-34</td></tr>
-      <tr><td>S</td><td>86–90</td><td>68–72</td><td>92–96</td><td>US 4-6 / EU 36</td></tr>
-      <tr><td>M</td><td>90–94</td><td>72–76</td><td>96–100</td><td>US 6-8 / EU 38</td></tr>
-      <tr><td>L</td><td>94–98</td><td>76–80</td><td>100–104</td><td>US 10 / EU 40</td></tr>
-      <tr><td>XL</td><td>98–102</td><td>80–84</td><td>104–108</td><td>US 12 / EU 42</td></tr>
-     </tbody>
-    </table>
-   </div>
-   <div class="size-block">
-    <h4 class="size-label">Men</h4>
-    <table class="size-table">
-     <thead><tr><th>Size</th><th>Chest</th><th>Waist</th><th>Hip</th><th>≈ US/EU</th></tr></thead>
-     <tbody>
-      <tr><td>XS</td><td>86–90</td><td>72–76</td><td>90–94</td><td>US XS / EU 44</td></tr>
-      <tr><td>S</td><td>90–94</td><td>76–80</td><td>94–98</td><td>US S / EU 46</td></tr>
-      <tr><td>M</td><td>94–98</td><td>80–84</td><td>98–102</td><td>US M / EU 48</td></tr>
-      <tr><td>L</td><td>98–104</td><td>84–90</td><td>102–108</td><td>US L / EU 50</td></tr>
-      <tr><td>XL</td><td>104–110</td><td>90–96</td><td>108–114</td><td>US XL / EU 52</td></tr>
-     </tbody>
-    </table>
-   </div>
-  </div>
-  <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:18px">Not sure? Check your measurements against the chart above, or size up if between sizes.</p>
- </div>
-</section>
-
 <!-- ============ 10. FAQ ============ -->
 <section class="sec alt">
  <div class="wrap">
@@ -747,9 +698,9 @@ a{color:inherit;text-decoration:none;transition:color .2s,opacity .2s}
   <h2 class="sec-h">FAQ</h2>
   <div class="faq-list" style="margin-top:30px">
    <details class="faq" open><summary>How do I order from the Philippines?</summary><p>Browse our online store, choose your color and size, and check out securely. We ship from Thailand straight to your address in the Philippines — the whole process is in English, with prices in peso (₱).</p></details>
-   <details class="faq"><summary>Do you deliver across the Philippines?</summary><p>Yes — we deliver nationwide, from Metro Manila to the provinces. Delivery usually takes 5–12 business days depending on your location. See the <a href="#size-guide" style="color:var(--c-blue-d);text-decoration:underline">shipping table above</a> for estimates.</p></details>
-   <details class="faq"><summary>What sizes do you offer?</summary><p>Sizes XS–XL in both women's and men's fits, with a size guide provided. Not sure? Send us your measurements and we'll recommend a size.</p></details>
-   <details class="faq"><summary>What if I'm not sure about my size?</summary><p>Check the size guide above, or message us your measurements before you order — we'll confirm your exact size so you can buy with confidence. Our fit runs true to Asian sizing; if you're between sizes, size up.</p></details>
+   <details class="faq"><summary>Do you deliver across the Philippines?</summary><p>Yes — we deliver nationwide, from Metro Manila to the provinces. Delivery usually takes 5–12 business days depending on your location. See the shipping estimates above.</p></details>
+   <details class="faq"><summary>What sizes do you offer?</summary><p>Sizes XS–XL in both women's and men's fits. Not sure? Send us your measurements and we'll recommend the right size.</p></details>
+   <details class="faq"><summary>What if I'm not sure about my size?</summary><p>Message us your measurements before you order — we'll confirm your exact size so you can buy with confidence. Our fit runs true to Asian sizing; if you're between sizes, size up.</p></details>
    <details class="faq"><summary>How many colors are available?</summary><p>18 shades — from SpearMint, Black Soul and Dark Sea to Wild Rose and more.</p></details>
    <details class="faq"><summary>Can you embroider a logo or name?</summary><p>Yes — perfect for individuals and teams. Send your logo or name when you chat and we'll arrange it.</p></details>
    <details class="faq"><summary>How do I pay, and are there extra fees?</summary><p>Prices are shown in Philippine peso (₱) and payment is handled securely at checkout. Orders under ₱10,000 are duty-free under PH customs (de minimis), so there are no surprise import fees on delivery.</p></details>
