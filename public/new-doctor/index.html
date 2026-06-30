@@ -117,7 +117,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
  display:flex;flex-direction:column;justify-content:center;
 }
 .banner-grid{display:none}
-.banner-panel::after{display:none}
+.banner-panel::after{
+ content:"";position:absolute;inset:0;z-index:1;pointer-events:none;display:block;
+ background:linear-gradient(90deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.78) 24%,rgba(255,255,255,.4) 46%,rgba(255,255,255,0) 66%);
+}
 .banner-overlay{
  position:relative;width:100%;max-width:1240px;margin:0 auto;
  padding:160px 20px 60px;z-index:2;
