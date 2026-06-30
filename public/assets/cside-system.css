@@ -124,3 +124,37 @@ main.page-stack{
    scrollbar. Centered content is unaffected. */
 html.cs-locked,
 html.cs-locked body{ overflow-x: clip; }
+
+/* 9) Keep <body> out of the containing-block chain for absolute children.
+   Pages run a `pageIn` entrance animation on <body> that animates `transform`.
+   While that animation lives (fill-mode both keeps it), <body> becomes the
+   containing block for position:absolute descendants — so the overlay navbar
+   (top:30px) resolves against <body> instead of the viewport. Combined with the
+   hero's negative margin-top that pushes the navbar off-screen (y:-70) on home,
+   /men and /women. Disabling the body animation/transform anchors the navbar to
+   the viewport. Content still appears immediately; the proportion lock uses
+   html.zoom (not a body transform) so it is unaffected. */
+body{ animation: none !important; transform: none !important; }
+
+/* 10) Tidier footer on phones. The per-page footer cramped SHOP/SUPPORT/ABOUT
+   into 3 narrow columns whose uneven link counts (5 / 2 / 1) wrapped and looked
+   ragged. On <=640px stack every section full-width in one column, separated by
+   hairline dividers, with roomy tap targets — clean and scannable. */
+@media (max-width: 640px){
+  .footer-grid{ grid-template-columns: 1fr !important; gap: 0 !important; }
+  .ft-brand{ grid-column: 1 / -1 !important; margin-bottom: 6px !important; }
+  .ft-col, .ft-news{
+    grid-column: 1 / -1 !important;
+    padding: 18px 0 !important;
+    border-top: 1px solid rgba(0,0,0,.08) !important;
+  }
+  .ft-col h5, .ft-news h5{ margin-bottom: 10px !important; }
+  .ft-col a{ display: block !important; padding: 7px 0 !important; font-size: 13px !important; }
+  .ft-news{ border-bottom: 1px solid rgba(0,0,0,.08) !important; }
+  .footer-bot{
+    flex-direction: column !important;
+    gap: 10px !important;
+    align-items: flex-start !important;
+    padding-top: 16px !important;
+  }
+}

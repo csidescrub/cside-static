@@ -14,7 +14,12 @@
    ============================================================ */
 (function () {
   var DESIGN = 1440;   // design canvas width
-  var MAX_ZOOM = 2.4;  // sanity guard for very large 4K+ displays
+  /* Cap the upscale at the MacBook level (~1.15x). Beyond ~1440px the page used
+     to scale up linearly (1920→1.33x, 2560→1.78x, 4K→2.4x) which felt oversized
+     on external monitors and TVs. Capping here keeps big screens at the same
+     comfortable size as a MacBook; extra width becomes margin around the
+     centered max-width content instead of bigger everything. */
+  var MAX_ZOOM = 1.15;
   var html = document.documentElement;
 
   function apply() {

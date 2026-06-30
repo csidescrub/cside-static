@@ -393,7 +393,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <div class="g-cell">
        <img id="glRightA" alt="Pageant Blue">
        <img id="glRightB" alt="Pageant Blue" style="opacity:0">
-       <video id="glVid" src="/img/snoopy-video.mp4" poster="/img/men-snoopy-pageantblue.jpg" muted playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
+       <video id="glVid" src="/img/snoopy-men-video.mp4" poster="/img/men-snoopy-pageantblue.jpg" muted playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
       </div>
      </div>
     </div>
@@ -646,11 +646,11 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=docum
 const f=document.getElementById('newsForm');
 if(f)f.addEventListener('submit',e=>{e.preventDefault();const b=f.querySelector('button'),o=b.textContent;b.textContent='✓';f.querySelector('input').value='';setTimeout(()=>b.textContent=o,1500)});
 </script>
-<link rel="stylesheet" href="/assets/mobile-overrides.css"><link rel="stylesheet" href="/assets/cside-system.css?v=2"><script src="/assets/desktop-lock.js?v=2"></script>
+<link rel="stylesheet" href="/assets/mobile-overrides.css"><link rel="stylesheet" href="/assets/cside-system.css?v=4"><script src="/assets/desktop-lock.js?v=3"></script>
 <script>
 (function(){
  var imgs = ['/img/men-snoopy-pageantblue.jpg','/img/pdp-snoopy-pageant-blue-1.jpg','/img/pdp-snoopy-pageant-blue-2.jpg','/img/pdp-snoopy-pageant-blue-3.jpg'];
- var ORIG_N = imgs.length, N = ORIG_N + 1, VID_IDX = ORIG_N, VID_THUMB = '/img/snoopy-video-thumb.jpg', GAP = 8, DUR = 500;
+ var ORIG_N = imgs.length, N = ORIG_N + 1, VID_IDX = ORIG_N, VID_THUMB = '/img/snoopy-men-video-thumb.jpg', GAP = 8, DUR = 500;
  var strip = document.getElementById('glStrip');
  var rA = document.getElementById('glRightA');
  var rB = document.getElementById('glRightB');
