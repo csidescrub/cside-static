@@ -117,8 +117,16 @@ a{color:inherit;text-decoration:none;transition:color .2s,opacity .2s}
 .sol li>span:last-child{flex:1;min-width:0}
 
 /* ---- 6. PRODUCTS (bsl-card style) ---- */
-.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1040px;margin:0 auto}
-.bcard{background:rgba(255,255,255,.65);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,.6);border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(50,80,120,.10),0 2px 6px rgba(0,0,0,.04),inset 0 1px 0 rgba(255,255,255,.7);position:relative;display:block;transition:transform .18s ease,box-shadow .25s ease}
+.prods-wrap{position:relative;max-width:1040px;margin:0 auto}
+.prods{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;padding:4px 2px}
+.prods::-webkit-scrollbar{display:none}
+.prods-nav{position:absolute;top:38%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.92);backdrop-filter:blur(10px) saturate(180%);-webkit-backdrop-filter:blur(10px) saturate(180%);color:#1a1a1a;font-size:20px;line-height:1;display:grid;place-items:center;cursor:pointer;z-index:6;box-shadow:0 6px 18px rgba(50,80,120,.18);transition:background .2s,color .2s,opacity .2s}
+.prods-nav:hover{background:#1a1a1a;color:#fff}
+.prods-prev{left:-20px}
+.prods-next{right:-20px}
+.prods-nav[disabled]{opacity:0;pointer-events:none}
+@media(max-width:768px){.prods-nav{display:none}.bcard{flex-basis:62vw;max-width:230px}}
+.bcard{flex:0 0 232px;scroll-snap-align:start;background:rgba(255,255,255,.65);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,.6);border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(50,80,120,.10),0 2px 6px rgba(0,0,0,.04),inset 0 1px 0 rgba(255,255,255,.7);position:relative;display:block;transition:transform .18s ease,box-shadow .25s ease}
 .bcard:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(50,80,120,.18),0 3px 8px rgba(0,0,0,.05),inset 0 1px 0 rgba(255,255,255,.7)}
 .bcard-imgwrap{position:relative;overflow:hidden}
 .bcard-img{aspect-ratio:3/4;background-color:#d4e2ef;background-size:cover;background-position:center top;transition:transform .4s ease}
@@ -385,64 +393,234 @@ a{color:inherit;text-decoration:none;transition:color .2s,opacity .2s}
   <h2 class="sec-h">Our full collection</h2>
   <p class="sec-sub">Tap to view details, pick your color, and order online — shipped to your door.</p>
 
-  <!-- Snoopy Collection -->
-  <h3 class="col-heading">Snoopy Collection <span class="col-badge">Official Peanuts Licensed</span></h3>
-  <div class="prods">
-   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-spearmint">
-    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-spearmint.webp')"></div><span class="bcard-arrow">→</span></div>
+  <h3 class="col-heading">Snoopy Collection</h3>
+  <div class="prods-wrap">
+   <button class="prods-nav prods-prev" aria-label="Previous">‹</button>
+   <div class="prods">
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-alpine-green">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-alpine-green-fullbody-v2.jpg')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Alpine Green</h4><p class="c">Women</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-alpine-green.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-black-soul">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-black-soul-fullbody.jpg')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Black Soul</h4><p class="c">Women</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-black-soul.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-blue-lagoon">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-blue-lagoon-fullbody-v2.jpg')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Blue Lagoon</h4><p class="c">Women</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-blue-lagoon.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-cannoli-cream">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-cannoli-cream-fullbody-v2.jpg')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Cannoli Cream</h4><p class="c">Women</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-cannoli-cream.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-charcoal-grey">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-charcoal-grey-fullbody-v2.jpg')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Charcoal Grey</h4><p class="c">Women</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-charcoal-grey.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-cherry-blossom">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-cherry-blossom-fullbody-v2.jpg')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Cherry Blossom</h4><p class="c">Women</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-cherry-blossom.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-dark-forest">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-dark-forest-fullbody-v2.jpg')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Dark Forest</h4><p class="c">Women</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-dark-forest.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-dark-sea">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-dark-sea-fullbody.jpg')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Dark Sea</h4><p class="c">Women</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-dark-sea.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-dreamy-purple">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-dreamy-purple-fullbody.jpg')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Dreamy Purple</h4><p class="c">Women</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-dreamy-purple.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-iris-mist">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-iris-mist-fullbody.jpg')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Iris Mist</h4><p class="c">Women</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-iris-mist.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-lavender-grey">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-lavender-grey-fullbody.jpg')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Lavender Grey</h4><p class="c">Women</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-lavender-grey.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-midnight">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-midnight-fullbody.jpg')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Midnight</h4><p class="c">Women</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-midnight.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-moon-stone-grey">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-moon-stone-grey-fullbody-v2.jpg')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Moon Stone Grey</h4><p class="c">Women</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-moon-stone-grey.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-pageant-blue">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-pageant-blue-fullbody.jpg')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Pageant Blue</h4><p class="c">Women</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-pageant-blue.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-ruby-gem">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-ruby-gem-fullbody.jpg')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Ruby Gem</h4><p class="c">Women</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-ruby-gem.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-sandstone">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-sandstone-fullbody.jpg')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Sandstone</h4><p class="c">Women</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-sandstone.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-spear-mint">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-spear-mint-fullbody.jpg')"></div><span class="bcard-arrow">→</span></div>
     <div class="bcard-foot"><h4>Classic Snoopy - Spear Mint</h4><p class="c">Women</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-spear-mint.webp" alt=""></div>
    </a>
-   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-wildrose">
-    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-wildrose.webp')"></div><span class="bcard-arrow">→</span></div>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97%E0%B8%AA%E0%B8%99%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B8%9B%E0%B8%B5%E0%B9%89-%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%AB%E0%B8%8D%E0%B8%B4%E0%B8%87-classic-snoopy?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-w-wild-rose">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-snoopy-wild-rose-fullbody.jpg')"></div><span class="bcard-arrow">→</span></div>
     <div class="bcard-foot"><h4>Classic Snoopy - Wild Rose</h4><p class="c">Women</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-wild-rose.webp" alt=""></div>
    </a>
-   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-snp-m?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-m-sandstone">
-    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-snoopy-sandstone.webp')"></div><span class="bcard-arrow">→</span></div>
-    <div class="bcard-foot"><h4>Classic Snoopy - Sandstone</h4><p class="c">Men</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-sandstone.webp" alt=""></div>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-snp-m?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-m-alpine-green">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-snoopy-alpine.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Alpine Green</h4><p class="c">Men</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-alpine-green.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-snp-m?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-m-black-soul">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-snoopy-blacksoul.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Black Soul</h4><p class="c">Men</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-black-soul.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-snp-m?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-m-blue-lagoon">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-snoopy-bluelagoon.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Blue Lagoon</h4><p class="c">Men</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-blue-lagoon.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-snp-m?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-m-cannoli-cream">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-snoopy-cannoli.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Cannoli Cream</h4><p class="c">Men</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-cannoli-cream.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-snp-m?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-m-charcoal-grey">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-snoopy-charcoalgrey.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Charcoal Grey</h4><p class="c">Men</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-charcoal-grey.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-snp-m?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-m-cherry-blossom">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-snoopy-cherryb.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Cherry Blossom</h4><p class="c">Men</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-cherry-blossom.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-snp-m?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-m-dark-forest">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-snoopy-darkforest.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Dark Forest</h4><p class="c">Men</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-dark-forest.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-snp-m?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-m-dark-sea">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-snoopy-darksea.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Dark Sea</h4><p class="c">Men</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-dark-sea.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-snp-m?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-m-dreamy-purple">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-snoopy-dreamyp.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Dreamy Purple</h4><p class="c">Men</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-dreamy-purple.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-snp-m?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-m-iris-mist">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-snoopy-irismist.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Iris Mist</h4><p class="c">Men</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-iris-mist.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-snp-m?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-m-lavender-grey">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-snoopy-lavendergrey.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Lavender Grey</h4><p class="c">Men</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-lavender-grey.webp" alt=""></div>
    </a>
    <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-snp-m?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-m-midnight">
     <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-snoopy-midnight.webp')"></div><span class="bcard-arrow">→</span></div>
     <div class="bcard-foot"><h4>Classic Snoopy - Midnight</h4><p class="c">Men</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-midnight.webp" alt=""></div>
    </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-snp-m?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-m-moon-stone-grey">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-snoopy-moon.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Moon Stone Grey</h4><p class="c">Men</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-moon-stone-grey.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-snp-m?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-m-pageant-blue">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-snoopy-pageantblue.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Pageant Blue</h4><p class="c">Men</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-pageant-blue.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-snp-m?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-m-ruby-gem">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-snoopy-rubygem.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Ruby Gem</h4><p class="c">Men</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-ruby-gem.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-snp-m?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-m-sandstone">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-snoopy-sandstone.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Sandstone</h4><p class="c">Men</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-sandstone.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-snp-m?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-m-spear-mint">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-snoopy-spearmint.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Spear Mint</h4><p class="c">Men</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-spear-mint.webp" alt=""></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-snp-m?ref=collection&amp;collection_slug=snoopy-collection" target="_blank" rel="noopener" data-cta="prod-snoopy-m-wild-rose">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-snoopy-wildrose.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Classic Snoopy - Wild Rose</h4><p class="c">Men</p><p class="p">$52 <span class="p-thb">฿1,890</span></p><img class="bcard-snoopy" src="/img/sn-wild-rose.webp" alt=""></div>
+   </a>
+   </div>
+   <button class="prods-nav prods-next" aria-label="Next">›</button>
   </div>
 
-  <!-- New Classic Collection -->
   <h3 class="col-heading">New Classic Collection</h3>
-  <div class="prods">
-   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97-new-classic-women?ref=collection&amp;collection_slug=new-classic-collection" target="_blank" rel="noopener" data-cta="prod-classic-w-blacksoul">
+  <div class="prods-wrap">
+   <button class="prods-nav prods-prev" aria-label="Previous">‹</button>
+   <div class="prods">
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97-new-classic-women?ref=collection&amp;collection_slug=new-classic-collection" target="_blank" rel="noopener" data-cta="prod-classic-w-black-soul">
     <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-classic-blacksoul.webp')"></div><span class="bcard-arrow">→</span></div>
     <div class="bcard-foot"><h4>New Classic - Black Soul</h4><p class="c">Women</p><p class="p">$45 <span class="p-thb">฿1,650</span></p></div>
    </a>
-   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97-new-classic-women?ref=collection&amp;collection_slug=new-classic-collection" target="_blank" rel="noopener" data-cta="prod-classic-w-steelgrey">
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97-new-classic-women?ref=collection&amp;collection_slug=new-classic-collection" target="_blank" rel="noopener" data-cta="prod-classic-w-cloudy-blue">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-classic-cloudyblue.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>New Classic - Cloudy Blue</h4><p class="c">Women</p><p class="p">$45 <span class="p-thb">฿1,650</span></p></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97-new-classic-women?ref=collection&amp;collection_slug=new-classic-collection" target="_blank" rel="noopener" data-cta="prod-classic-w-french-purple">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-classic-frenchpurple.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>New Classic - French Purple</h4><p class="c">Women</p><p class="p">$45 <span class="p-thb">฿1,650</span></p></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97-new-classic-women?ref=collection&amp;collection_slug=new-classic-collection" target="_blank" rel="noopener" data-cta="prod-classic-w-monstera-green">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-classic-monsteragreen.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>New Classic - Monstera Green</h4><p class="c">Women</p><p class="p">$45 <span class="p-thb">฿1,650</span></p></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97-new-classic-women?ref=collection&amp;collection_slug=new-classic-collection" target="_blank" rel="noopener" data-cta="prod-classic-w-steel-grey">
     <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-classic-steelgrey.webp')"></div><span class="bcard-arrow">→</span></div>
     <div class="bcard-foot"><h4>New Classic - Steel Grey</h4><p class="c">Women</p><p class="p">$45 <span class="p-thb">฿1,650</span></p></div>
    </a>
-   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-ncl-m?ref=collection&amp;collection_slug=new-classic-collection" target="_blank" rel="noopener" data-cta="prod-classic-m-blacksoul">
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-ncl-m?ref=collection&amp;collection_slug=new-classic-collection" target="_blank" rel="noopener" data-cta="prod-classic-m-black-soul">
     <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-classic-blacksoul.webp')"></div><span class="bcard-arrow">→</span></div>
     <div class="bcard-foot"><h4>New Classic - Black Soul</h4><p class="c">Men</p><p class="p">$45 <span class="p-thb">฿1,650</span></p></div>
    </a>
-   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-ncl-m?ref=collection&amp;collection_slug=new-classic-collection" target="_blank" rel="noopener" data-cta="prod-classic-m-steelgrey">
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-ncl-m?ref=collection&amp;collection_slug=new-classic-collection" target="_blank" rel="noopener" data-cta="prod-classic-m-cloudy-blue">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-classic-cloudyblue.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>New Classic - Cloudy Blue</h4><p class="c">Men</p><p class="p">$45 <span class="p-thb">฿1,650</span></p></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-ncl-m?ref=collection&amp;collection_slug=new-classic-collection" target="_blank" rel="noopener" data-cta="prod-classic-m-french-purple">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-classic-frenchpurple.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>New Classic - French Purple</h4><p class="c">Men</p><p class="p">$45 <span class="p-thb">฿1,650</span></p></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-ncl-m?ref=collection&amp;collection_slug=new-classic-collection" target="_blank" rel="noopener" data-cta="prod-classic-m-monstera-green">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-classic-monsteragreen.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>New Classic - Monstera Green</h4><p class="c">Men</p><p class="p">$45 <span class="p-thb">฿1,650</span></p></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-bdl-ncl-m?ref=collection&amp;collection_slug=new-classic-collection" target="_blank" rel="noopener" data-cta="prod-classic-m-steel-grey">
     <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-classic-steelgrey.webp')"></div><span class="bcard-arrow">→</span></div>
     <div class="bcard-foot"><h4>New Classic - Steel Grey</h4><p class="c">Men</p><p class="p">$45 <span class="p-thb">฿1,650</span></p></div>
    </a>
+   </div>
+   <button class="prods-nav prods-next" aria-label="Next">›</button>
   </div>
 
-  <!-- Sustainable Collection -->
   <h3 class="col-heading">Sustainable Collection</h3>
-  <div class="prods prods-3">
-   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-sus-bx?ref=collection&amp;collection_slug=sustainable-collection" target="_blank" rel="noopener" data-cta="prod-sustain-w">
+  <div class="prods-wrap">
+   <button class="prods-nav prods-prev" aria-label="Previous">‹</button>
+   <div class="prods">
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-sus-bx?ref=collection&amp;collection_slug=sustainable-collection" target="_blank" rel="noopener" data-cta="prod-sustain-w-denim">
     <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-sustain-denim.webp')"></div><span class="bcard-arrow">→</span></div>
-    <div class="bcard-foot"><h4>Sustainable Set</h4><p class="c">Women</p><p class="p">$45 <span class="p-thb">฿1,650</span> <span class="p-old">$48</span></p></div>
+    <div class="bcard-foot"><h4>Sustainable Set - Denim</h4><p class="c">Women</p><p class="p">$45 <span class="p-thb">฿1,650</span> <span class="p-old">$48</span></p></div>
    </a>
-   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-sus-bx?ref=collection&amp;collection_slug=sustainable-collection" target="_blank" rel="noopener" data-cta="prod-sustain-m">
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-sus-bx?ref=collection&amp;collection_slug=sustainable-collection" target="_blank" rel="noopener" data-cta="prod-sustain-w-sunrise">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-sustain-sunrise.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Sustainable Set - Sunrise Dream</h4><p class="c">Women</p><p class="p">$45 <span class="p-thb">฿1,650</span> <span class="p-old">$48</span></p></div>
+   </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-sus-bx?ref=collection&amp;collection_slug=sustainable-collection" target="_blank" rel="noopener" data-cta="prod-sustain-m-denim">
     <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-sustain-denim.webp')"></div><span class="bcard-arrow">→</span></div>
-    <div class="bcard-foot"><h4>Sustainable Set</h4><p class="c">Men</p><p class="p">$45 <span class="p-thb">฿1,650</span> <span class="p-old">$48</span></p></div>
+    <div class="bcard-foot"><h4>Sustainable Set - Denim</h4><p class="c">Men</p><p class="p">$45 <span class="p-thb">฿1,650</span> <span class="p-old">$48</span></p></div>
    </a>
+   <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-sus-bx?ref=collection&amp;collection_slug=sustainable-collection" target="_blank" rel="noopener" data-cta="prod-sustain-m-sunrise">
+    <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/men-sustain-sunrisedream.webp')"></div><span class="bcard-arrow">→</span></div>
+    <div class="bcard-foot"><h4>Sustainable Set - Sunrise Dream</h4><p class="c">Men</p><p class="p">$45 <span class="p-thb">฿1,650</span> <span class="p-old">$48</span></p></div>
+   </a>
+   </div>
+   <button class="prods-nav prods-next" aria-label="Next">›</button>
   </div>
 
-  <!-- Gown & Dentist Collection -->
   <h3 class="col-heading">Gown &amp; Dentist Collection</h3>
-  <div class="prods prods-3">
+  <div class="prods-wrap">
+   <button class="prods-nav prods-prev" aria-label="Previous">‹</button>
+   <div class="prods">
    <a class="bcard" href="https://0j85q3282r.shop.zaviago.com/product/cs-gwn-l?ref=collection&amp;collection_slug=gown-collection" target="_blank" rel="noopener" data-cta="prod-longgown">
     <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-longgown-default.webp')"></div><span class="bcard-arrow">→</span></div>
     <div class="bcard-foot"><h4>Long Medical Gown</h4><p class="c">Women &amp; Men</p><p class="p">$60 <span class="p-thb">฿2,190</span> <span class="p-old">$66</span></p></div>
@@ -455,6 +633,8 @@ a{color:inherit;text-decoration:none;transition:color .2s,opacity .2s}
     <div class="bcard-imgwrap"><div class="bcard-img" style="background-image:url('/img/women-dentist-default.webp')"></div><span class="bcard-arrow">→</span></div>
     <div class="bcard-foot"><h4>Dental Gown</h4><p class="c">Women &amp; Men</p><p class="p">$60 <span class="p-thb">฿2,190</span> <span class="p-old">$66</span></p></div>
    </a>
+   </div>
+   <button class="prods-nav prods-next" aria-label="Next">›</button>
   </div>
 
   <div style="text-align:center;margin-top:40px">
@@ -638,6 +818,25 @@ a{color:inherit;text-decoration:none;transition:color .2s,opacity .2s}
  var doPreload=function(){ for(var k in map){ var im=new Image(); im.src='/img/Mockup-'+map[k]+'-282x300.webp'; } items.forEach(function(it){ if(it.dataset.image){ var im=new Image(); im.src=it.dataset.image; } }); };
  if(document.readyState==='complete') (window.requestIdleCallback||function(f){setTimeout(f,1200);})(doPreload);
  else window.addEventListener('load',function(){ (window.requestIdleCallback||function(f){setTimeout(f,1200);})(doPreload); });
+})();
+</script>
+<script>
+/* Horizontal slider arrows for each collection row */
+(function(){
+ document.querySelectorAll('.prods-wrap').forEach(function(w){
+  var row=w.querySelector('.prods'),
+      prev=w.querySelector('.prods-prev'),
+      next=w.querySelector('.prods-next');
+  if(!row||!prev||!next) return;
+  function step(){ return Math.max(250, Math.round(row.clientWidth*0.85)); }
+  function upd(){ var max=row.scrollWidth-row.clientWidth-2;
+   prev.disabled=row.scrollLeft<=2; next.disabled=row.scrollLeft>=max; }
+  prev.addEventListener('click',function(){ row.scrollBy({left:-step(),behavior:'smooth'}); });
+  next.addEventListener('click',function(){ row.scrollBy({left: step(),behavior:'smooth'}); });
+  row.addEventListener('scroll',upd,{passive:true});
+  window.addEventListener('resize',upd);
+  upd();
+ });
 })();
 </script>
 
