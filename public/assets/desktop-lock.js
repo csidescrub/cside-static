@@ -37,6 +37,10 @@
        vh-based sizing comes out too tall. Expose the true logical height as
        a variable instead. */
     html.style.setProperty('--cs-vh100', (window.innerHeight / z) + 'px');
+    /* Expose the active zoom factor so full-bleed 100vw sections can
+       counter-scale (zoom:calc(1/var(--cs-zoom))) and keep correct
+       proportions on large monitors instead of overflowing. */
+    html.style.setProperty('--cs-zoom', z);
   }
 
   apply();

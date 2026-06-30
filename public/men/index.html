@@ -258,7 +258,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 
 /* ============== COLLECTION CAROUSEL (full-bleed, 3 cards per view) ============== */
-.cat-wrap{position:relative;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden}
+.cat-wrap{position:relative;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden;
+ /* Counter the desktop-lock zoom so the 100vw carousel keeps its 3-up proportions and does not overflow on large monitors */
+ zoom:calc(1 / var(--cs-zoom, 1));}
 .cat-grid{
  display:flex;gap:0;
  overflow-x:auto;
@@ -768,5 +770,5 @@ renderProducts('snoopy');
  updateButtons();
 })();
 </script>
-<link rel="stylesheet" href="/assets/mobile-overrides.css"><link rel="stylesheet" href="/assets/cside-system.css?v=4"><script src="/assets/desktop-lock.js?v=3"></script><script src="/assets/phase1-redirect.js"></script><script>(function(){var t=document.getElementById("navToggle"),n=document.getElementById("navLinks");if(t&&n)t.addEventListener("click",function(){n.classList.toggle("open");});})();</script></body>
+<link rel="stylesheet" href="/assets/mobile-overrides.css"><link rel="stylesheet" href="/assets/cside-system.css?v=4"><script src="/assets/desktop-lock.js?v=4"></script><script src="/assets/phase1-redirect.js"></script><script>(function(){var t=document.getElementById("navToggle"),n=document.getElementById("navLinks");if(t&&n)t.addEventListener("click",function(){n.classList.toggle("open");});})();</script></body>
 </html>
