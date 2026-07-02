@@ -199,6 +199,16 @@ a{color:inherit;text-decoration:none;transition:color .2s,opacity .2s}
 .ship-table th{text-align:left;padding:12px 16px;font-weight:600;color:var(--ink);border-bottom:2px solid var(--line);font-size:13px;text-transform:uppercase;letter-spacing:.05em}
 .ship-table td{padding:12px 16px;border-bottom:1px solid var(--line);color:var(--ink-2)}
 .ship-table tbody tr:hover{background:rgba(0,0,0,.02)}
+.ship-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:820px;margin:0 auto}
+.ship-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;box-shadow:var(--shadow-sm)}
+.ship-card h3{font-family:var(--sans);font-size:15px;font-weight:700;color:var(--c-blue-d);letter-spacing:.02em;margin:0 0 16px}
+.ship-card .row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--ink-2)}
+.ship-card .row:last-of-type{border-bottom:none}
+.ship-card .row b{color:var(--ink);font-weight:700;white-space:nowrap}
+.ship-card .big{font-family:var(--sans);font-size:22px;font-weight:700;color:var(--ink);line-height:1.2;margin:0 0 6px}
+.ship-card .big span{display:block;font-size:14px;font-weight:400;color:var(--c-text-soft);margin-top:4px}
+.ship-card .note{font-size:13px;line-height:1.6;color:var(--c-text-soft);margin:14px 0 0}
+@media(max-width:640px){.ship-cards{grid-template-columns:1fr}}
 
 
 /* ---- payment icons ---- */
@@ -681,15 +691,18 @@ a{color:inherit;text-decoration:none;transition:color .2s,opacity .2s}
   <p class="sec-kicker">Shipping info</p>
   <h2 class="sec-h">Shipping to the Philippines</h2>
   <p class="sec-sub">We ship from Thailand to anywhere in the Philippines. Orders under ₱10,000 clear PH customs duty-free (de minimis) — no surprise import fees on delivery. Shipping is calculated at checkout and may vary by weight.</p>
-  <table class="ship-table">
-   <thead><tr><th>Destination</th><th>Estimated cost</th><th>Delivery</th></tr></thead>
-   <tbody>
-    <tr><td>Metro Manila</td><td>from ₱300</td><td>5–9 business days</td></tr>
-    <tr><td>Luzon (outside Metro Manila)</td><td>from ₱400</td><td>6–11 business days</td></tr>
-    <tr><td>Visayas / Mindanao</td><td>from ₱450</td><td>7–12 business days</td></tr>
-   </tbody>
-  </table>
-  <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:16px">Group orders (5+ sets) may qualify for discounted shipping. <a href="https://0j85q3282r.shop.zaviago.com" target="_blank" rel="noopener" style="color:var(--c-blue-d);text-decoration:underline">Visit our store</a> for details.</p>
+  <div class="ship-cards">
+   <div class="ship-card">
+    <h3>Shipping Fee</h3>
+    <div class="row"><span>1–2 sets</span><b>≈ ₱1,120</b></div>
+    <div class="row"><span>Additional set</span><b>+₱320 each</b></div>
+   </div>
+   <div class="ship-card">
+    <h3>Estimated Delivery Time</h3>
+    <p class="big">10–15 days<span>from Thailand to the Philippines</span></p>
+    <p class="note">Delivery time may vary depending on customs clearance, package weight, and delivery location.</p>
+   </div>
+  </div>
  </div>
 </section>
 
