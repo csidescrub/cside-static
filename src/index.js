@@ -12,6 +12,21 @@
 // ═══════════════════════════════════════════════════════════
 
 const COMING_SOON_HOSTS = ['csidescrubs.com', 'www.csidescrubs.com'];
+const LONG_CACHE_EXTENSIONS = new Set([
+  'avif',
+  'css',
+  'gif',
+  'ico',
+  'jpg',
+  'jpeg',
+  'js',
+  'mp4',
+  'png',
+  'svg',
+  'webp',
+  'woff',
+  'woff2'
+]);
 
 const COMING_SOON_HTML = `<!DOCTYPE html>
 <html lang="en">
@@ -45,6 +60,18 @@ export default {
         }
       });
     }
-    return env.ASSETS.fetch(request);
+    const response = await env.ASSETS.fetch(request);
+    const extension = url.pathname.split('.').pop()?.toLowerCase();
+    if (!extension || !LONG_CACHE_EXTENSIONS.has(extension)) {
+      return response;
+    }
+
+    const headers = new Headers(response.headers);
+    headers.set('cache-control', 'public, max-age=31536000, immutable');
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers
+    });
   }
 };

@@ -13,7 +13,7 @@
    ".ofo-standalone .ofo-row:hover{transform:translateY(-2px);background:rgba(255,255,255,.85)}" +
    ".ofo-standalone .ofo-ico{width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,.06);display:grid;place-items:center;flex-shrink:0;color:#1a1a1a}" +
    ".ofo-standalone .ofo-ico svg{width:20px;height:20px}" +
-   ".ofo-standalone .ofo-info h4{font-family:'Inter','Kanit',sans-serif;font-size:14px;font-weight:600;color:#1a1a1a;margin:0 0 3px}" +
+   ".ofo-standalone .ofo-info h3{font-family:'Inter','Kanit',sans-serif;font-size:14px;font-weight:600;color:#1a1a1a;margin:0 0 3px}" +
    ".ofo-standalone .ofo-info .val{font-family:'Inter','Kanit',sans-serif;font-size:13px;color:#3a3a3a;margin:0 0 3px}" +
    ".ofo-standalone .ofo-info .hint{font-family:'Kanit',sans-serif;font-size:12px;color:#7b8794;line-height:1.5;margin:0}" +
    "@media(max-width:768px){.ofo-panel.ofo-standalone{margin:16px 12px;padding:22px 18px;border-radius:18px}.ofo-standalone .ofo-rows{grid-template-columns:1fr;gap:12px}.ofo-standalone .ofo-label{font-size:18px}}";
@@ -31,9 +31,9 @@
   sec.innerHTML =
    '<div class="ofo-head"><p class="ofo-label">CONNECT WITH US</p></div>' +
    '<div class="ofo-rows">' +
-    '<a class="ofo-row" href="https://line.me/R/ti/p/@cside" target="_blank" rel="noopener"><div class="ofo-ico">' + LINE_SVG + '</div><div class="ofo-info"><h4>LINE Official</h4><p class="val">@cside</p><p class="hint">Fastest way to get help!</p></div></a>' +
-    '<a class="ofo-row" href="https://www.facebook.com/Cside.scrub" target="_blank" rel="noopener"><div class="ofo-ico">' + FB_SVG + '</div><div class="ofo-info"><h4>Facebook</h4><p class="val">Cside.scrub</p><p class="hint">Follow us for updates &amp; news.</p></div></a>' +
-    '<a class="ofo-row" href="https://www.instagram.com/cside.s/" target="_blank" rel="noopener"><div class="ofo-ico">' + IG_SVG + '</div><div class="ofo-info"><h4>Instagram</h4><p class="val">@cside.s</p><p class="hint">DM us anytime.</p></div></a>' +
+    '<a class="ofo-row" href="https://line.me/R/ti/p/@cside" target="_blank" rel="noopener"><div class="ofo-ico">' + LINE_SVG + '</div><div class="ofo-info"><h3>LINE Official</h3><p class="val">@cside</p><p class="hint">Fastest way to get help!</p></div></a>' +
+    '<a class="ofo-row" href="https://www.facebook.com/Cside.scrub" target="_blank" rel="noopener"><div class="ofo-ico">' + FB_SVG + '</div><div class="ofo-info"><h3>Facebook</h3><p class="val">Cside.scrub</p><p class="hint">Follow us for updates &amp; news.</p></div></a>' +
+    '<a class="ofo-row" href="https://www.instagram.com/cside.s/" target="_blank" rel="noopener"><div class="ofo-ico">' + IG_SVG + '</div><div class="ofo-info"><h3>Instagram</h3><p class="val">@cside.s</p><p class="hint">DM us anytime.</p></div></a>' +
    '</div>';
 
   function place(){

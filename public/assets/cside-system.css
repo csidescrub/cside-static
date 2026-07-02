@@ -158,3 +158,15 @@ body{ animation: none !important; transform: none !important; }
     padding-top: 16px !important;
   }
 }
+
+/* 11) Keep the absolute hero navbar from covering the first headline line on
+   shorter desktop viewports. */
+.hero-inner-full {
+  padding-top: max(150px, 18vh) !important;
+}
+
+@media (max-width: 768px) {
+  .hero-inner-full {
+    padding-top: 210px !important;
+  }
+}
